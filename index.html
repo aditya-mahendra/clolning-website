@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -17,39 +8,48 @@
         <title>Cloning</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-       <nav>
-          <input id="nav-toggle" type="checkbox">
-          <div class="LOGO">finan<span>si</span></div>
-          <ul class="link">
-              <li><a href="">Home </a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Service</a></li>
-              <li><a href="">Contact</a></li>
-          </ul>
-          <label for="nav-toggle" class="icon-burger">
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
-          </label>
-      </nav>
-         
-        <!--jumbotron-->
-      <div class="container">
-        <div class="sidebar">
-           <h1 >Financial Solutions </h1>      
-           <h1> to Advance Your Business</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-            <h5>See More -></h5>
-        </div>
-        <div class="sidebar2">
-          <div id="images" >
-           <img src="img/logo.png" alt="" >
-          </div>
+       <header class="fn-header">
+            <div class="container">
+               <div class="fn-header-inner">
+                     <div class="fn-logo">
+                        <a href="#"><img src="img/finansi.png" alt="finansi"></a>
+                     </div>
+                  <div class="fn-nav-container">
+                     <nav class="fn-navigation">
+                        <ul class="fn-main-menu">
+                              <li  class="fn-menu-item"><a href="#">Home </a></li>
+                              <li  class="fn-menu-item" ><a href="#">About</a></li>
+                              <li  class="fn-menu-item"><a href="#">Service</a></li>
+                              <li  class="fn-menu-item"><a href="#">Contact</a></li>
+                        </ul>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+       </header>
+       
+      <section class="fn-hero">
+         <div class="container">
+             <div class="fn-hero-main">
+               <div class="fn-hero-left">
+                  <h1 class="fn-hero-title">Financial Solutions to Advance Your Business</h1>      
+                  
+                   <p class="fn-hero-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <button class="fn-button-primary">see more</button>
+               </div>
+               <div class="fn-hero-right">
+                  <img src="img/logo.png" alt="" class="fn-hero-image">
+              </div>
+           </div>
        </div>
-    </div>
+    </section>
+        <!--jumbotron-->
+    
 
 
      <!--Header satu-->
@@ -225,5 +225,3 @@
  
     </body>
     </html>
-</body>
-</html>
