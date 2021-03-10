@@ -61,7 +61,6 @@ html, body {
   margin: 0 20px;
   width: 100px;
   height: 20px;
-  background-color: #FAB123;
 }
 .fn-main-menu a {
   text-decoration: none;
@@ -171,28 +170,27 @@ html, body {
   }
 }
 
-.container1 .sidebar {
-  position: absolute;
-  width: 529px;
-  height: 78px;
-  left: 140px;
-  top: 300px;
-  font-family: "poppins", sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
-  color: #000000;
+.fn-service-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 90px;
+  flex-direction: row;
 }
-.container1 .sidebar h1 {
+.fn-service-main .fn-service-satu {
+  max-width: 30%;
+  width: 30%;
+}
+.fn-service-main .fn-service-satu .fn-servis-title {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
-  line-height: 60px;
+  font-size: 25px;
+  line-height: 50px;
+  /* identical to box height */
   color: #2D487C;
 }
-.container1 .sidebar p {
+.fn-service-main .fn-service-satu .fn-servis-decs {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -200,7 +198,7 @@ html, body {
   line-height: 24px;
   color: #000000;
 }
-.container1 .sidebar h5 {
+.fn-service-main .fn-service-satu .fn-service-btn {
   width: 143px;
   height: 45px;
   background: #E98970;
@@ -213,17 +211,101 @@ html, body {
   /* identical to box height */
   text-align: center;
   color: #FFFFFF;
-  margin-top: 50px;
+  margin-top: 40px;
   letter-spacing: 1px;
+  border: none;
 }
-.container1 .sidebar2 {
-  position: absolute;
-  width: 693.32px;
-  height: 632.7px;
-  left: 696px;
-  top: 109px;
+.fn-service-main .fn-service-dua {
+  max-width: 35%;
+  width: 35%;
+  height: 245px;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 50px;
+  margin: 0 15px;
 }
-
+.fn-service-main .fn-service-dua .fn-financial-title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 34px;
+  /* identical to box height */
+  color: #4C4C4C;
+}
+.fn-service-main .fn-service-dua .fn-fincial-desc {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4C4C4C;
+  margin-top: 21px;
+}
+.fn-service-main .fn-service-dua .fn-financial-buton {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color: #2D487C;
+  margin-top: 21px;
+}
+.fn-service-main .fn-service-tiga {
+  max-width: 35%;
+  width: 35%;
+  height: 245px;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: 50px;
+}
+.fn-service-main .fn-service-tiga .fn-loan-title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 34px;
+  /* identical to box height */
+  color: #4C4C4C;
+}
+.fn-service-main .fn-service-tiga .fn-loan-desc {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4C4C4C;
+  margin-top: 21px;
+}
+.fn-service-main .fn-service-tiga .fn-loan-buton {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color: #2D487C;
+  margin-top: 21px;
+}
+@media screen and (max-width: 768px) {
+  .fn-service-main .fn-hero-left {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 80px;
+  }
+  .fn-service-main .fn-hero-left .fn-hero-title {
+    font-size: 32px;
+    line-height: 1.3em;
+    margin-bottom: 12px;
+  }
+  .fn-service-main .fn-hero-right {
+    width: 100%;
+    max-width: 100%;
+  }
+}
 .container-satu {
   margin-top: 918px;
   margin-left: 140px;
