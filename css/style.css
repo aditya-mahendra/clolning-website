@@ -172,14 +172,12 @@ html, body {
 
 .fn-service-main {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   margin-top: 90px;
-  flex-direction: row;
 }
 .fn-service-main .fn-service-satu {
-  max-width: 30%;
-  width: 30%;
+  max-width: 33%;
+  width: 33%;
 }
 .fn-service-main .fn-service-satu .fn-servis-title {
   font-family: "Poppins", sans-serif;
@@ -216,15 +214,13 @@ html, body {
   border: none;
 }
 .fn-service-main .fn-service-dua {
-  max-width: 35%;
-  width: 35%;
-  height: 245px;
+  max-width: 33%;
+  width: 33%;
   background: #FFFFFF;
   border: 1px solid #E5E5E5;
   box-sizing: border-box;
   border-radius: 15px;
   padding: 50px;
-  margin: 0 15px;
 }
 .fn-service-main .fn-service-dua .fn-financial-title {
   font-family: "Poppins", sans-serif;
@@ -235,7 +231,7 @@ html, body {
   /* identical to box height */
   color: #4C4C4C;
 }
-.fn-service-main .fn-service-dua .fn-fincial-desc {
+.fn-service-main .fn-service-dua .fn-financial-desc {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -254,14 +250,14 @@ html, body {
   margin-top: 21px;
 }
 .fn-service-main .fn-service-tiga {
-  max-width: 35%;
-  width: 35%;
-  height: 245px;
+  max-width: 33%;
+  width: 33%;
   background: #FFFFFF;
   border: 1px solid #E5E5E5;
   box-sizing: border-box;
   border-radius: 15px;
   padding: 50px;
+  margin: 0 15px;
 }
 .fn-service-main .fn-service-tiga .fn-loan-title {
   font-family: "Poppins", sans-serif;
@@ -291,21 +287,101 @@ html, body {
   margin-top: 21px;
 }
 @media screen and (max-width: 768px) {
-  .fn-service-main .fn-hero-left {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 80px;
+  .fn-service-main.fn-service-satu {
+    max-width: 50%;
+    width: 50%;
   }
-  .fn-service-main .fn-hero-left .fn-hero-title {
-    font-size: 32px;
-    line-height: 1.3em;
-    margin-bottom: 12px;
+  .fn-service-main.fn-service-satu .fn-servis-title {
+    font-size: 18px;
   }
-  .fn-service-main .fn-hero-right {
-    width: 100%;
-    max-width: 100%;
+  .fn-service-main.fn-service-satu .fn-servis-decs {
+    font-size: 14px;
+    line-height: 1.2em;
+  }
+  .fn-service-main.fn-service-satu .fn-service-btn {
+    margin-top: 10px;
+    line-height: 1.4em;
+  }
+  .fn-service-main.fn-service-dua {
+    max-width: 50%;
+    width: 50%;
+  }
+  .fn-service-main.fn-service-dua .fn-financial-title {
+    font-size: 16px;
+  }
+  .fn-service-main.fn-service-dua .fn-financial-desc {
+    font-size: 14px;
+    line-height: 1.2em;
+  }
+  .fn-service-main.fn-service-tiga {
+    max-width: 50%;
+    width: 50%;
+  }
+  .fn-service-main.fn-service-tiga .fn-loan-title {
+    font-size: 16px;
+  }
+  .fn-service-main.fn-service-tiga .fn-laon-desc {
+    font-size: 14px;
+    line-height: 1.2em;
   }
 }
+@media screen and (max-width: 578px) {
+  .fn-service-main {
+    flex-direction: column;
+    margin: 20px;
+  }
+  .fn-service-main .fn-service-satu {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .fn-service-main .fn-service-satu .fn-servis-title {
+    font-size: 16px;
+  }
+  .fn-service-main .fn-service-satu .fn-servis-decs {
+    font-size: 12px;
+    line-height: 1.2em;
+  }
+  .fn-service-main .fn-service-satu .fn-service-btn {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .fn-service-main .fn-service-dua {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .fn-service-main .fn-service-dua .fn-financial-desc {
+    font-size: 12px;
+    line-height: 1.2em;
+  }
+  .fn-service-main .fn-service-dua .fn-financial-buton {
+    font-size: 10px;
+  }
+  .fn-service-main .fn-service-tiga {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+  .fn-service-main .fn-service-tiga .fn-loan-desc {
+    font-size: 12px;
+    line-height: 1.2em;
+  }
+}
+
+.fn-about-main {
+  display: flex;
+}
+.fn-about-main .fn-about.satu {
+  color: aqua;
+}
+.fn-about-main .fn-about.dua {
+  background-color: #2D487C;
+}
+.fn-about-main .fn-about.tiga {
+  background-color: #C4C4C4;
+}
+
 .container-satu {
   margin-top: 918px;
   margin-left: 140px;

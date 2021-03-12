@@ -23,14 +23,14 @@ html,body{
         max-width: 700px;
     }
      
-    }
+ }
 
     @media screen and (max-width :578px) {
         &  {
             max-width: 500px;
         }
          
-        }
+     }
     
 }
 
@@ -165,15 +165,17 @@ html,body{
     }
 
     @media screen and (max-width :768px){
+
+        
         & .fn-hero-left {
             width: 100%;
             max-width: 100%;
             margin-top: 80px;
 
             .fn-hero-title{
-                font-size: 32px;
-                line-height: 1.3em;
-                margin-bottom: 12px;
+            font-size: 32px;
+            line-height: 1.3em;
+            margin-bottom: 12px;
             }
         }
 
@@ -206,14 +208,15 @@ html,body{
 
 .fn-service-main{
     display: flex ;
-    justify-content: space-around;
     align-items: center;
     margin-top: 90px;
-    flex-direction: row;
+   
+    
+    
 
     .fn-service-satu {
-        max-width: 30%;
-        width: 30%;
+        max-width: 33%;
+        width: 33%;
 
     .fn-servis-title{
         font-family: 'Poppins',sans-serif;
@@ -255,15 +258,14 @@ html,body{
   }
 
   .fn-service-dua{
-      max-width:35%;
-      width: 35%;
-      height: 245px;
+      max-width:33%;
+      width: 33%;
       background: #FFFFFF;
       border: 1px solid #E5E5E5;
       box-sizing: border-box;
       border-radius: 15px;  
       padding: 50px;
-      margin: 0 15px;
+     
 
   .fn-financial-title {
     font-family: 'Poppins',sans-serif;
@@ -274,7 +276,7 @@ html,body{
     /* identical to box height */
     color: #4C4C4C;
    }
-   .fn-fincial-desc {
+   .fn-financial-desc {
     font-family: 'Poppins',sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -296,15 +298,14 @@ html,body{
   }
 
   .fn-service-tiga{
-    max-width:35%;
-    width: 35%;
-    height: 245px;
+    max-width:33%;
+    width: 33%;
     background: #FFFFFF;
     border: 1px solid #E5E5E5;
     box-sizing: border-box;
     border-radius: 15px;  
     padding: 50px;
-
+    margin: 0 15px;
     .fn-loan-title  {
     font-family: 'Poppins',sans-serif;
     font-style: normal;
@@ -334,38 +335,139 @@ html,body{
     }
   }
 
-  @media screen and (max-width :768px){
-    & .fn-hero-left {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 80px;
+  @media screen and (max-width :768px) {
+    
+    &.fn-service-satu {
+        max-width:50%;
+        width: 50%;
 
-        .fn-hero-title{
-            font-size: 32px;
-            line-height: 1.3em;
-            margin-bottom: 12px;
+     .fn-servis-title {
+         font-size: 18px;
+     }
+
+     .fn-servis-decs {
+       font-size: 14px;
+       line-height: 1.2em;
+     } 
+
+     .fn-service-btn{
+        margin-top: 10px;
+        line-height: 1.4em;
+
+     }
+        
+    }
+    &.fn-service-dua {
+        max-width:50%;
+        width: 50%;
+
+        .fn-financial-title {
+            font-size: 16px;
         }
+
+        .fn-financial-desc {
+            font-size: 14px;
+            line-height: 1.2em;
+          }
     }
 
-    & .fn-hero-right {
+    &.fn-service-tiga {
+        max-width: 50%;
+        width: 50%;
+        .fn-loan-title {
+            font-size: 16px;
+        }
+
+        .fn-laon-desc {
+            font-size: 14px;
+            line-height: 1.2em;
+          }
+    }
+      
+  }
+  @media  screen and (max-width :578px) {
+     
+    &{
+        flex-direction: column;
+        margin: 20px;
+       
+    }
+    & .fn-service-satu {
         width: 100%;
         max-width: 100%;
+        margin-bottom: 20px;
+
+        .fn-servis-title {
+            font-size: 16px;
+        }
+
+        .fn-servis-decs{
+            font-size: 12px;
+            line-height: 1.2em;
+          }
+
+          .fn-service-btn{
+            font-size: 12px;
+            margin-top: 10px;
+           
+            
+    
+         }
+
+    }
+
+    & .fn-service-dua {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+
+        .fn-financial-desc {
+            font-size: 12px;
+            line-height: 1.2em;
+          }
+          .fn-financial-buton {
+            font-size: 10px;
+
+          }
+      
+    }
+
+    & .fn-service-tiga {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 10px;
+       
+
+
+        .fn-loan-desc {
+            font-size: 12px;
+            line-height: 1.2em;
+          }
+      
+       
+    }
+      
+  }
+}
+
+.fn-about-main {
+    display: flex;
+    
+
+    .fn-about.satu{
+        
+        color: aqua;
+       
+    }
+
+    .fn-about.dua{
+       background-color: #2D487C; 
+    }
+
+    .fn-about.tiga{
+       background-color: #C4C4C4; 
     }
 }
-
-@media screen and (max-width :578px){
-
-    .fn-service-main{
-     
-    } 
-}
-  
-}
-
-
-
-
-
 .container-satu{
    margin-top : 918px;
    margin-left: 140px;
