@@ -142,15 +142,7 @@ html, body {
 }
 @media screen and (max-width: 578px) {
   .fn-main-menu {
-    position: absolute;
-    right: 0;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    background-color: #be9c11;
-    z-index: -1;
-    transform: translateX(100%);
-    transition: all 1s;
+    display: none;
   }
   .fn-main-menu .fn-main-menu {
     transform: translateX(0);
