@@ -8,6 +8,7 @@ html,body{
     background: #FFFFFF;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -43,6 +44,7 @@ html,body{
     flex-wrap: wrap;
     align-items: center;
     padding: 20px 0;
+    position: fixed;
     
 }
 
@@ -62,18 +64,89 @@ html,body{
     display: flex;
     width: 70%;
     max-width: 70%;
+     //hamburger menu/
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        height: 20px;
+        justify-content: space-between;
+        margin-left: 250px;
+        position:relative ;
+        span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: black;
+            border-radius: 3px;
+            transition: all 0.5s;      
+    }
+    //hamburger-menu-animasi//
+    span:nth-child(2){
+       transform-origin: 0 0;
+    }
+
+    span:nth-child(4){
+        transform-origin: 0 100%;
+     }
+
+    input:checked ~ span:nth-child(2){
+       transform: rotate(45deg) translate(-1px, -1px);
+    }
+
+    input:checked ~ span:nth-child(3){
+        transform: scale(0);
+        opacity: 0;
+     }
+
+    input:checked ~ span:nth-child(4){
+        transform: rotate(-45deg)translate(-1px, 0);
+     }
+
+
+    input {
+        position:absolute ;
+        width: 40px;
+        height: 28px;
+        left: -6px;
+        top: -3px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+        
+    }
+
+    @media screen and(max-width:578px) {
+
+        & {
+            display: flex;
+        }
+    }
+
+
+    
+}
+
    
 }
 .fn-main-menu {
     justify-content: space-around;
     display: flex;
+    margin-left: 80px;
    
     
     .fn-menu-item {
         list-style: none;
         margin: 0 20px;
-       width: 100px;
-       height: 20px;
+        width: 100px;
+        height: 60px;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        &:hover{
+            background: #2D487C;
+            color: #FFFFFF;
+        }
        
     }
 
@@ -84,17 +157,48 @@ html,body{
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-
         color: #000000;
-
         &:hover{
-            background: #2D487C;
+            color: #FFFFFF;
+            text-align: center;
         }
+
     }
+
+    //hamburger menu//@at-root
 
     @media screen and(max-width:768px) {
         & {
-            display: none;
+          width: 50%;
+         
+
+          .fn-menu-item {
+              margin: 0;
+          }   
+        }  
+      }
+
+      @media screen and(max-width:578px) {
+        & {
+          position: absolute;
+          right: 0;
+          flex-direction: column;
+          height: 100vh;
+          width: 100%;
+          background-color: rgb(190, 156, 17);
+         
+          z-index: -1;
+          transform: translateX(100%);
+          transition: all 1s;
+        
+          .fn-main-menu {
+              transform: translateX(0);
+          }
+         
+
+          .fn-menu-item {
+            justify-content: space-evenly; 
+          }   
         }  
       }
 }
@@ -110,8 +214,7 @@ html,body{
         margin-top: 170px;
         max-width: 50%;
         width: 50%;
-        z-index: 1;
-        
+        margin-top: 250px;        
         .fn-hero-title{
             font-family: 'Poppins',sans-serif;
             font-style: normal;
@@ -147,8 +250,10 @@ html,body{
             color: #FFFFFF;
             margin-top: 50px;
             letter-spacing: 1px;
+            animation: animasi 2s steps(70, end) ;
+            overflow: hidden;
            &:hover{
-            background: #f03e11;
+            background: #fd6039;
             
            }
         } 
@@ -157,6 +262,7 @@ html,body{
     .fn-hero-right{
        max-width: 50%;
        width: 50%;
+       margin-top: 150px;
 
 
        .fn-hero-image{
@@ -170,7 +276,7 @@ html,body{
         & .fn-hero-left {
             width: 100%;
             max-width: 100%;
-            margin-top: 80px;
+            margin-top: 130px;
 
             .fn-hero-title{
             font-size: 32px;
@@ -182,6 +288,7 @@ html,body{
         & .fn-hero-right {
             width: 100%;
             max-width: 100%;
+            margin-top: -10px;
         }
     }
 
@@ -189,7 +296,7 @@ html,body{
         & .fn-hero-left {
             width: 100%;
             max-width: 100%;
-            margin-top: 40px;
+            margin-top: 150px;
 
             .fn-hero-title{
                 font-size: 23px;
@@ -246,12 +353,18 @@ html,body{
         font-weight: bold;
         font-size: 16px;
         line-height: 50px;
-        /* identical to box height */
         text-align: center;
         color: #FFFFFF;
         margin-top: 40px;
         letter-spacing: 1px; 
-        border: none;  
+        border: none; 
+        animation: animasi 2s steps(70, end) ;
+        overflow: hidden;
+        
+        &:hover{
+            background: #fd6039;
+            
+           } 
         
      }
 
@@ -265,7 +378,11 @@ html,body{
       box-sizing: border-box;
       border-radius: 15px;  
       padding: 50px;
-     
+      &:hover{
+        background: #F7F6F6;
+        
+       } 
+      
 
   .fn-financial-title {
     font-family: 'Poppins',sans-serif;
@@ -294,6 +411,11 @@ html,body{
     line-height: 21px;
     color: #2D487C;
     margin-top: 21px;  
+
+    &:hover{
+        color:rgba(32, 30, 30,.5) ;
+        
+       } 
    }
   }
 
@@ -306,6 +428,11 @@ html,body{
     border-radius: 15px;  
     padding: 50px;
     margin: 0 15px;
+
+    &:hover{
+        background: #F7F6F6;
+        
+       } 
     .fn-loan-title  {
     font-family: 'Poppins',sans-serif;
     font-style: normal;
@@ -331,15 +458,20 @@ html,body{
     font-size: 16px;
     line-height: 21px;
     color: #2D487C;
-    margin-top: 21px;    
+    margin-top: 21px;  
+    &:hover{
+        color:rgba(32, 30, 30,.5) ;
+        
+       }  
     }
   }
 
   @media screen and (max-width :768px) {
     
-    &.fn-service-satu {
+    & .fn-service-satu {
         max-width:50%;
         width: 50%;
+        margin: 0;
 
      .fn-servis-title {
          font-size: 18px;
@@ -357,12 +489,15 @@ html,body{
      }
         
     }
-    &.fn-service-dua {
+    & .fn-service-dua {
         max-width:50%;
         width: 50%;
+        margin: 0;
+        
 
         .fn-financial-title {
             font-size: 16px;
+            line-height: 1.3em;
         }
 
         .fn-financial-desc {
@@ -371,14 +506,16 @@ html,body{
           }
     }
 
-    &.fn-service-tiga {
+    & .fn-service-tiga {
         max-width: 50%;
         width: 50%;
+       
         .fn-loan-title {
             font-size: 16px;
+            line-height: 1.3em;
         }
 
-        .fn-laon-desc {
+        .fn-loan-desc {
             font-size: 14px;
             line-height: 1.2em;
           }
@@ -389,115 +526,101 @@ html,body{
      
     &{
         flex-direction: column;
-        margin: 20px;
+        margin: 0;
        
     }
     & .fn-service-satu {
-        width: 100%;
-        max-width: 100%;
+        width: 90%;
+        max-width: 90%;
         margin-bottom: 20px;
 
         .fn-servis-title {
-            font-size: 16px;
-        }
-
-        .fn-servis-decs{
-            font-size: 12px;
-            line-height: 1.2em;
-          }
-
-          .fn-service-btn{
-            font-size: 12px;
-            margin-top: 10px;
-           
-            
-    
-         }
+         font-size: 25px;
+      }   
 
     }
 
     & .fn-service-dua {
-            width: 100%;
-            max-width: 100%;
-            margin-bottom: 20px;
+        width: 90%;
+        max-width: 90%;
+        margin-bottom: 20px;
+
+        .fn-financial-title {
+            font-size: 25px;
+         }  
 
         .fn-financial-desc {
-            font-size: 12px;
-            line-height: 1.2em;
-          }
-          .fn-financial-buton {
-            font-size: 10px;
-
-          }
+        line-height: 1.2em;
+          
+     }
       
     }
 
     & .fn-service-tiga {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 10px;
-       
+        width: 90%;
+        max-width: 90%; 
 
-
+        .fn-loan-title {
+            font-size: 25px;
+         }  
+        
         .fn-loan-desc {
-            font-size: 12px;
             line-height: 1.2em;
-          }
-      
-       
+              
+         }
     }
       
   }
 }
 
+//fn-about-main//
+
 .fn-about-main {
     display: flex;
+    margin-top: 150px;
     
 
-    .fn-about.satu{
-        
-        color: aqua;
+    .fn-about-satu{
+        width:24%;
+        max-width: 24%;
+
+    .fn-title {
+        font-family: 'Poppins' ,sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 1.4em;
+        color: #2D487C;
+    }
        
-    }
-
-    .fn-about.dua{
-       background-color: #2D487C; 
-    }
-
-    .fn-about.tiga{
-       background-color: #C4C4C4; 
-    }
 }
-.container-satu{
-   margin-top : 918px;
-   margin-left: 140px;
-   
-   .service.satu{
-    width: 344px;
-    height: 172px;
 
-    h1{
+    .fn-about-dua{
+        width: 50%;
+        max-width: 50%;
+       
+       
+
+    .fn-about-title {
         font-family: 'Poppins',sans-serif;
         font-style: normal;
-        font-weight: bold;
-        font-size: 25px;
-        line-height: 50px;
-        /* identical to box height */   
-        color: #2D487C;
-        display: block;
-        
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.4em;
+        color: #000000;
     }
-    p{
-        
+
+    .fn-about-desc{
         font-family: 'Poppins',sans-serif;
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
-        line-height: 24px;
-        color: #000000;
+        line-height: 1.4em;
+        color: #4C4C4C;
+        margin-top: 30px;
     }
 
-    h5{
+    .fn-about-btn {
         width: 143px;
         height: 45px;
         background: #E98970;
@@ -507,757 +630,861 @@ html,body{
         font-weight: bold;
         font-size: 16px;
         line-height: 50px;
-        /* identical to box height */
         text-align: center;
         color: #FFFFFF;
         margin-top: 40px;
         letter-spacing: 1px; 
+        border: none; 
+        animation: animasi 2s steps(70, end) ;
+        overflow: hidden;
+        
+        &:hover{
+            background: #fd6039;
+            
+           } 
     }
-    .animasi{
-        position: absolute;
-        left: -0.73%;
-        top: 12.16%;
-    }
-   }
 
-   .service.dua{
-    position: absolute;
-    width: 377px;
-    height: 245px;
-    left: 533px;
-    top: 908px;
-    background: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    box-sizing: border-box;
-    border-radius: 15px;  
-    padding: 50px;
-
-    h4{
-    
-    font-family: 'Poppins',sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 23px;
-    line-height: 34px;
-    /* identical to box height */
-    color: #4C4C4C;
-    }
-    
-    p{
-        font-family: 'Poppins',sans-serif;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 16px;
-        line-height: 24px;
-        color: #4C4C4C;
-        margin-top: 21px;
-    }
-    .pp{
-        font-family: 'Poppins',sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 21px;
-        color: #2D487C;
-        margin-top: 21px;
-    }
-   }
-
-   .service.tiga{
-    position: absolute;
-    width: 377px;
-    height: 245px;
-    left: 924px;
-    top: 908px;
-    background: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    box-sizing: border-box;
-    border-radius: 15px;
-    padding: 50px;
-
-    h4{
-    
-        font-family: 'Poppins',sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 23px;
-        line-height: 34px;
-        /* identical to box height */
-        color: #4C4C4C;
-        }
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            color: #4C4C4C;
-            margin-top: 21px;
-        }
-
-        .pp{
-        font-family: 'Poppins',sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 21px;
-        color: #2D487C;
-        margin-top: 21px; 
-        }
-   }
+     
 }
 
-.container-dua{
-    margin-left: 140px;
-    display: flex;
-    margin-top: 100px;
-   
+    .fn-about-tiga{
+        width: 35%;
+        max-width: 35%;
+        margin-left: 23px;
+        margin-top: -80px;
 
-    .Financial.dua{
-        position: absolute;
-        width: 377px;
-        height: 245px;
-        left: 533px;
-        top: 1198px;
-        background: #FFFFFF;
-        border: 1px solid #E5E5E5;
-        box-sizing: border-box;
-        border-radius: 15px;
-        padding: 50px;
-
-        h4{
-    
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 23px;
-            line-height: 34px;
-            /* identical to box height */
-            color: #4C4C4C;
-            }
-            
-            p{
-                font-family: 'Poppins',sans-serif;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 16px;
-                line-height: 24px;
-                color: #4C4C4C;
-                margin-top: 21px;
-            }
-            .pp{
-                font-family: 'Poppins',sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 21px;
-                color: #2D487C;
-                margin-top: 21px;
-            }
+       
+      
     }
 
-    .Financial.tiga{
-        position: absolute;
-        width: 377px;
-        height: 245px;
-        left: 924px;
-        top: 1198px;
-        background: #FFFFFF;
-        border: 1px solid #E5E5E5;
-        box-sizing: border-box;
-        border-radius: 15px;
-        padding: 50px;
-
-        h4{
+    //reaponsive tablet//@at-root
+    @media  screen and (max-width :768px) {
+        & .fn-about-satu{
+            width: 30%;
+            max-width: 30%;
+            margin: 0;
     
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 23px;
-            line-height: 34px;
-            /* identical to box height */
-            color: #4C4C4C;
-            }
-            
-            p{
-                font-family: 'Poppins',sans-serif;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 16px;
-                line-height: 24px;
-                color: #4C4C4C;
-                margin-top: 21px;
-            }
-            .pp{
-                font-family: 'Poppins',sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 16px;
-                line-height: 21px;
-                color: #2D487C;
-                margin-top: 21px;
-            }
-
-    }
-}
-
-
-.container-about{
-    margin-top: 450px;
-    margin-left: 140px;
-    display: flex;
-
-    .about.satu{
-        h2{
-            position: absolute;
-            width: 116px;
-            height: 38px;
-            left: 140px;
-            top: 1702px;
-    
-            font-family: 'Poppins' ,sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 25px;
-            line-height: 37px;
-            /* identical to box height */
-    
-    
+        .fn-title{
+            font-size: 18px;
             color: #2D487C;
         }
+           
     }
-
-    .about.dua{
-        position: absolute;
-        width: 450px;
-        left: 298px;
-        top: 1710px;
-       
-
-        h3{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 27px;
-            color: #000000;
-
+    
+       & .fn-about-dua{
+            width: 50%;
+            max-width: 50%;
+          
+           
+    
+        .fn-about-title {  
+            font-size: 16px; 
+         
         }
-        
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            margin-top: 30px;
-            color: #4C4C4C;
-
+    
+        .fn-about-desc{
+            font-size: 12px;
+            margin-top: 12px;
         }
 
-        h5{
-            width: 143px;
-            height: 45px;
-            background: #E98970;
-            border-radius: 5px;
-            font-family: 'Poppins',sans-serif;
+         .fn-about-btn {
+            margin-top: 20px;  
+      }   
+    }
+    
+       & .fn-about-tiga{
+            width: 100%;
+            max-width: 100%;
+            margin-top: 10px;
+           
+          .fn-about-image {
+              width: 100%;
+          }
+        }  
+    }
+    
+    //responsive handphone//
+    @media  screen and (max-width :578px) {
+
+        & {
+            flex-direction: column;
+            
+        }
+        & .fn-about-satu{
+            width: 100%;
+            max-width: 100%;
+    
+        .fn-title {
+            font-family: 'Poppins' ,sans-serif;
             font-style: normal;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 1.4em;
+            color: #2D487C;
+        }
+           
+    }
+    
+      & .fn-about-dua{
+            width: 100%;
+            max-width: 100%;
+            margin-top: 20px;
+           
+    
+        .fn-about-title {  
+            font-size: 18px; 
+            margin-top: 5px; 
+        }
+    
+        .fn-about-desc{
             font-size: 16px;
-            line-height: 50px;
-            /* identical to box height */
-            text-align: center;
-            color: #FFFFFF;
+        }       
+    }
+    
+      & .fn-about-tiga{
+            width: 100%;
+            max-width: 100%;
             margin-top: 40px;
-            letter-spacing: 1px; 
-        }
-    }
-
-    .about.tiga{
-        position: absolute;
-        width: 553.2px;
-        height: 438.64px;
-        left: 848px;
-        top: 1623px;
+           
+          .fn-about-image {
+              width: 100%;
+          }
+        }  
     }
 }
 
+//fn-choose//@at-root
 
-.container-Choose{
-        position: absolute;
-        width: 199px;
-        height: 38px;
-        left: 140px;
-        top: 2303px;
+.fn-choose-main {
+        width: 50%;
+        margin-top: 80px;
 
-    h2{
+
+    .fn-choose-title{
         font-family: 'Poppins',sans-serif;
         font-style: normal;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 25px;
         line-height: 37px;
-        /* identical to box height */
-
-
         color: #2D487C;
-
     }
 
-    p{
+    .fn-choose-desc {
         font-family: 'Poppins',sans-serif;
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
         line-height: 24px;
         color: #4C4C4C;
-        width: 626px;
-        height: 72px;
-        left: 147px;
-        top: 2367px;
         margin-top: 25px;
         margin-left: 5px;
+    }
 
+    @media screen and (max-width :768px){
+        & 
+        {
+        width: 100%;
+        max-width: 100%;
+        }
+    }
+
+    @media screen and (max-width :578px){
+        & 
+        {
+        width: 100%;
+        max-width: 100%;
+        }
+       & .fn-choose-desc {
+        font-size: 14px;
+          
+       }
     }
 }
 
-
-.container-quality {
-    margin-left: 140px;
-    margin-top: 950px;
-  
-    .commitmen.satu  {
-        position: absolute;
-        width: 375px;
+//fn-quality//@at-root
+ .fn-quality-main {
+        display: flex;
+        margin-top: 80px;
+  .fn-quality-satu {
+        width: 33%;
+        max-width: 33%;
         height: 339px;
-        left: 140px;
-        top: 2512px;
         background: #2D487C;
         border-radius: 26px;
         padding: 50px;
         box-sizing: border-box;
 
-        h3{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 30px;
-            /* identical to box height */
+        &:hover{
+            background: #0940a7;
+            
+           } 
 
+ .fn-title-satu {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #FFFFFF;
+  }
 
-            color: #FFFFFF;
+  .fn-desc-satu {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        margin-top: 35px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFFFFF;
+        font-weight: 300;
+  }
+  }
 
-        }
-
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            margin-top: 35px;
-            font-size: 16px;
-            line-height: 24px;
-            color: #FFFFFF;
-        }
-    }
-
-    .commitmen.dua{
-
-        position: absolute;
-        width: 375px;
+  .fn-quality-dua {
+        width: 33%;
+        max-width: 33%; 
         height: 339px;
-        left: 532px;
-        top: 2512px;
         padding: 50px;
         box-sizing: border-box;
         background: #FFFFFF;
         border: 1px solid #E5E5E5;
         box-sizing: border-box;
         border-radius: 26px;
+        margin: 0 15px;
 
-        h3{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 30px;
-            /* identical to box height */
+        &:hover{
+            background: #F7F6F6;
+            
+           } 
 
+  .fn-title-dua {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #000000;
+  } 
+  
+  .fn-desc-dua {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 35px;
+        color: #000000;
+  }
 
-            color: #000000;
+ }
 
-        }
-
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            margin-top: 35px;
-            color: #000000;
-
-        }
-    }
-
-    .commitmen.tiga{
-        position: absolute;
-        width: 375px;
+ .fn-quality-tiga {
+        width: 33%;
+        max-width: 33%; 
         height: 339px;
-        left: 924px;
-        top: 2512px;
         padding: 50px;
         box-sizing: border-box;
         background: #F7F6F6;
         border-radius: 26px;
 
-        h3{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 30px;
-            /* identical to box height */
-
-
-            color: #000000;
-
-        }
-
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            margin-top: 35px;
-            color: #000000;
+        &:hover{
+            background: #757474;
             
-        }
-    }
-}
+           } 
 
+ .fn-title-tiga {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #000000;  
 
-.container-angka {
-    position: absolute;
-    width: 1440px;
-    height: 265px;
-    left: 0px;
-    top: 3020px;
-
-    background: #F7F6F6;
-
-    .div-angka{
-        margin-left: 140px;
-        display: flex;
-        margin-top: 80px;
-        text-align: center;
-        .Project.satu{
-
-            position: absolute;
-            left: 160px;
-            h1{
-                
-                font-style: normal;
-                font-weight: bold;
-                font-size: 50px;
-               
-                /* identical to box height */
-                color: #FAB123;
-
-            }
-
-            p{
-               
-                font-family: 'Poppins' , sans-serif;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 24px;
-                line-height: 36px;
-                /* identical to box height */
-
-
-                color: #4C4C4C;
-        }
-        }
-
-        .Project.dua {
-            position: absolute;
-            left: 500px;
-           
-
-            h1{
-                color: #FAB123;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 50px;
-                line-height: 61px
-            }
-
-            p{
-               
-                    font-family: 'Poppins' , sans-serif;
-                    font-style: normal;
-                    font-weight: 300;
-                    font-size: 24px;
-                    line-height: 36px;
-                    /* identical to box height */
-    
-    
-                    color: #4C4C4C;
-            }
-        }
-
-        .Project.tiga {
-            position: absolute;
-            left: 760px;
-
-            h1 {
-               
-            
-                font-family: Montserrat;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 50px;
-                line-height: 61px;
-                /* identical to box height */
-                
-                
-                color: #FAB123; 
-            }
-
-            p {
-                font-family: 'Poppins' , sans-serif;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 24px;
-                line-height: 36px;
-                /* identical to box height */
-
-
-                color: #4C4C4C;
-
-            }
-        }
-
-        .Project.empat {
-            position: absolute;
-            left: 1080px;
-
-            h1{
+        &:hover{
+            color: #E5E5E5;
              
-                font-family: Montserrat;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 50px;
-                line-height: 61px;
-                /* identical to box height */
-    
-    
-                color: #FAB123;
             }
+ }  
+ .fn-desc-tiga {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 35px;
+        color: #000000; 
 
-            p{
-               
-                font-family: 'Poppins' , sans-serif;
-                font-style: normal;
-                font-weight: 300;
-                font-size: 24px;
-                line-height: 36px;
-                /* identical to box height */
+        &:hover{
+           color: #E5E5E5;
+            
+           } 
+ } 
 
+ }
 
-                color: #4C4C4C;
-        }
+ @media screen and (max-width:768px) {
+  & .fn-quality-satu {
+        width: 33%;
+        max-width: 33%;
+        height: 339px;
 
-        }
-    }
+ .fn-title-satu {
+        
+        font-size: 14px;
+        line-height: 1.3em;
+      
+  }
+
+  .fn-desc-satu {      
+        margin-top: 35px;
+        font-size: 12px;
+        line-height: 1.3em;
+        
+  }
+  }
+
+ & .fn-quality-dua {
+        width: 33%;
+        max-width: 33%; 
+        height: 339px;
+       
+
+  .fn-title-dua {      
+        font-size: 14px;
+        line-height: 1.3em;
+      
+  } 
+  
+  .fn-desc-dua { 
+        font-weight: 300;  
+        font-size: 12px;
+        line-height: 1.3em;
+        
+        
+  }
+
+ }
+
+ & .fn-quality-tiga {
+    width: 33%;
+    max-width: 33%;
+    height: 339px; 
+   
+
+.fn-title-tiga {
+ 
+    font-size: 14px;
+    line-height: 1.3em;
+   
+}  
+.fn-desc-tiga {
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.3em;
+  
+   
+} 
+
 }
 
-.Testimony{
-    position: absolute;
-    width: 137px;
-    height: 38px;
-    left: 132px;
-    top: 3381px;
+ }
+
+ @media screen and (max-width:578px) {
+
+    & {
+        flex-direction: column;
+       
+
+    }
+    & .fn-quality-satu {
+          width: 90%;
+          max-width: 90%;
+          height: 60%;
+          margin-bottom: 12px;
+         
+  
+   .fn-title-satu {
+          
+          font-size: 20px;
+          line-height: 1.3em;
+        
+    }
+  
+    .fn-desc-satu {      
+          margin-top: 35px;
+          font-size: 14px;
+          line-height: 1.3em;
+          
+    }
+    }
+  
+   & .fn-quality-dua {
+          width: 90%;
+          max-width: 90%; 
+          margin: 0;
+          height: 60%;
+          margin-bottom: 12px;
+         
+         
+  
+    .fn-title-dua {      
+          font-size: 20px;
+          line-height: 1.3em;
+         
+        
+    } 
     
-    h1{
-    font-family: 'Poppins' , sans-serif;
+    .fn-desc-dua {   
+          font-size: 14px;
+          line-height: 1.3em;
+          margin-top: 35px;
+          
+    }
+  
+   }
+  
+   & .fn-quality-tiga {
+      width: 90%;
+      max-width: 90%;
+      height: 60%;
+     
+     
+  
+  .fn-title-tiga {
+   
+      font-size: 20px;
+      line-height: 1.3em;
+     
+  }  
+  .fn-desc-tiga {
+  
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.3em;
+      margin-top: 35px;
+     
+  } 
+  
+  }
+  
+   }
+
+} 
+
+//mision-project//@at-root
+  .fn-mision-main{
+      display: flex;
+      height: 265px;
+      background: #F7F6F6;
+      margin-top: 100px;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    
+
+  .fn-mision-satu {
+     padding: 20px;
+     box-sizing: border-box;
+ 
+    .fn-title-satu {
+     font-style: normal;
+     font-weight: bold;
+     font-size: 50px;
+     color: #FAB123;
+     
+    }
+    
+    .fn-desc-satu{
+     
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    color: #4C4C4C;
+    }
+ 
+ }
+  .fn-mision-dua {
+    .fn-title-dua {
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 37px;
-    /* identical to box height */
+    font-size: 50px;
+    color: #FAB123;
+
+ } 
     
+    .fn-desc-dua {
     
-    color: #2D487C;
+    font-family: 'Poppins' , sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    color: #4C4C4C;
+       }
+    
+  }
+
+  .fn-mision-tiga {
+.fn-title-tiga {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FAB123;
+}  
+    
+    .fn-desc-tiga {
+    
+    font-family: 'Poppins' , sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    color: #4C4C4C;
+   }
+ 
+ }
+  .fn-mision-empat {
+    padding: 20px;
+    box-sizing: border-box; 
+  .fn-title-empat {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    color: #FAB123;
+
+}
+    
+    .fn-desc-empat {
+  
+    font-family: 'Poppins' , sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    color: #4C4C4C;
+   } 
+  }
+  @media screen and (max-width:768px){
+    .fn-mision-satu {
+        width: 20%;
+        max-width: 20%;
+        padding: 20px;
+        box-sizing: border-box;
+       .fn-title-satu {
+        font-size: 40px;
+       }
+       
+       .fn-desc-satu{ 
+       font-size: 18px;
+       line-height: 36px;
+       }
+    
     }
+     .fn-mision-dua {
+        width: 20%;
+        max-width: 20%;
+       .fn-title-dua {
+       font-size: 40px;
+    } 
+       
+       .fn-desc-dua {
+       font-size: 18px;
+       line-height: 36px;
+          }
+       
+     }
+   
+     .fn-mision-tiga {
+        width: 20%;
+        max-width: 20%;
+   .fn-title-tiga {
+       font-size: 40px;
+   }  
+       
+       .fn-desc-tiga {
+       font-size: 18px;
+       line-height: 36px;
+      }
     
+    }
+     .fn-mision-empat {
+       width: 20%;
+       max-width: 20%;  
+       padding: 20px;
+       box-sizing: border-box;  
+     .fn-title-empat {
+       font-size: 40px;
+   }    
+     .fn-desc-empat { 
+       font-size: 18px;
+       line-height: 36px;
+      } 
+     }
+  }
+
+  @media screen and (max-width:578px){
+     & {
+         flex-direction: column;
+         height: 430px;
+     } 
+    .fn-mision-satu {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+       .fn-title-satu {
+        font-size: 40px;
+       }
+       
+       .fn-desc-satu{ 
+       font-size: 18px;
+       line-height: 36px;
+       }
+    
+    }
+     .fn-mision-dua {
+        width: 100%;
+        max-width: 100%;
+       .fn-title-dua {
+       font-size: 40px;
+    } 
+       
+       .fn-desc-dua {
+       font-size: 18px;
+       line-height: 36px;
+          }
+       
+     }
+   
+     .fn-mision-tiga {
+        width: 100%;
+        max-width: 100%;
+   .fn-title-tiga {
+       font-size: 40px;
+   }  
+       
+       .fn-desc-tiga {
+       font-size: 18px;
+       line-height: 36px;
+      }
+    
+    }
+     .fn-mision-empat {
+       width: 100%;
+       max-width: 100%;  
+       padding: 20px;
+       box-sizing: border-box;  
+     .fn-title-empat {
+       font-size: 40px;
+   }    
+     .fn-desc-empat { 
+       font-size: 18px;
+       line-height: 36px;
+      } 
+     }
+  }
 }
 
 
-.container-testimony {
-    position: absolute;
-    width: 137px;
-    height: 38px;
-    
-    top: 3381px;
-    margin-top: 100px;
+//fn-testi//
+ 
+  .fn-testi-main{
+      margin-top: 100px;
+      width: 35%;
+      max-width: 35%;
+      animation: animasi 2s steps(70, end) ;
+      overflow: hidden;
 
-    .testimony.satu{
-        position: absolute;
-        width: 600px;
+
+      .fn-title {
+        font-family: 'Poppins' , sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 37px;
+        color: #2D487C;
+       
+
+   }
+  }
+
+  //fn-testimony//@at-root
+  .fn-testimony-main {
+      display: flex;
+      margin-top: 100px;
+    .fn-testimony-satu {
+        width: 60%;
+        max-width: 60%;
         height: 395px;
-        left: 132px;
-        
         background: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
         border-radius: 26px;
-
-
-        p {
-            font-family: 'Poppins' ,sans-serif;
-            font-style: italic;
-            font-weight: 300;
-            font-size: 25px;
-            line-height: 37px;
-            text-align: center;
-
-            color: #000000;
-        }
-
-
-        .Testy{
-            position: absolute;
-            width: 535px;
-            height: 280px;
-            padding: 50px;
-            
-            .border
-             {
-                position: absolute; 
-                display: block;
-                margin-top: 20px;
-                width: 94px;
-                height: 94px; 
-                background: #C4C4C4;
-                border-radius: 50% 50% 50% 50%; 
-                margin-left: 120px;
-            }
-
-            #mony{
-                position: absolute;
-                left: 290px;
-                margin-top: 50px;
-                font-family:'Poppins' ,sans-serif;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 20px;
-                line-height: 30px;
-                /* identical to box height */
-
-
-                color: #2D487C;
-
-            }
-
-        }
-
-        #pembungkus{
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            margin-top: 290px;
-            position: absolute;
-            margin-left: 250px;
-
-            #span{
-                width: 15px;
-                height: 15px;
-                background: #2D487C;
-                border-radius: 50% 50% 50% 50%;
-                margin-top:-0 ;
-                margin-top: 50px;
-                margin-left: 12px;
-                
-            }
-            #span1{
-                width: 15px;
-                height: 15px;
-                background:#C4C4C4;
-                border-radius: 50% 50% 50% 50%;
-                margin-top:-0 ;
-                margin-top: 50px;
-                margin-left: 12px;
-                
-            }
-            #span2{
-                width: 15px;
-                height: 15px;
-                background:#C4C4C4;
-                border-radius: 50% 50% 50% 50%;
-                margin-top:-0 ;
-                margin-top: 50px;
-                margin-left: 12px;
-                
-            }
-        }
-    }
-
-    .testimony.dua {
-        position: absolute;
-        width: 448px;
-        height: 395px;
-        left: 851px;
-        
-    
-
-    #consulting{
-        position: absolute;
-        width: 448px;
-        height: 395px;
-        margin-top: 65px;
-        margin-left: -115px;
        
-        h5{
+    .fn-testi-satu {
+        width: 535px;
+        height: 280px;
+        padding: 50px;
+        animation: animasi 3s steps(70, end) ;
+        overflow: hidden;
+       
 
-            font-style: normal;
-            font-weight: bold;
-            font-size: 35px;
-            line-height: 43px;
-            color: #4C4C4C;
-            text-align: center;
-            
+       
+    }
+    .fn-desc-testi1 {
+        font-family: 'Poppins' ,sans-serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 37px;
+        text-align: center;
+        color: #000000;
+        animation: animasi 1s steps(70, end) ;
+        overflow: hidden;
 
-        }
-
-        .free{
-            text-align: center;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 35px;
-            line-height: 43px;
-            /* identical to box height */
+        &:hover {
             color: #2D487C;
-
-        }
-
-        .pembungkusp{
-            margin-top: 40px;
-        }
-
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            text-align: center;
+            transition: 2s;
            
-            color: #000000;
-
+            
+           
+        }
+        @keyframes animasi { 
+           from {width: 0px;} 
         }
 
+    }
+    .border {
+        position: absolute; 
+        margin-top: 20px;
+        width: 94px;
+        height: 94px; 
+        background: #C4C4C4;
+        border-radius: 50% 50% 50% 50%; 
+        margin-left: 120px;
 
-        .button{
+        &:hover {
+            background: #2D487C;
+            transition: 2s;
+            transform: rotateY(360deg);
+        }
+    } 
+
+    .mony {
+        position: absolute;
+        margin-left: 230px;
+        margin-top: 50px;
+        font-family:'Poppins' ,sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        color: #2D487C;  
+    }
+    
+  }  
+
+  #pembungkus{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+        margin-left: 250px;
+
+    #span{
+        width: 15px;
+        height: 15px;
+        background: #2D487C;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+        &:hover {
+            background: #29303b;
+            transition: 2s;
+            transform: rotateY(360deg);
+        }
+        
+    }
+    #span1{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+
+        &:hover {
+            background: #29303b;
+            transition: 2s;
+            transform: rotateY(360deg);
+        }
+        
+    }
+    #span2{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+        
+
+        &:hover {
+            background: #354f80;
+            transition: 2s;
+            transform: rotateY(360deg);
+        }
+        
+    }
+}
+
+
+
+    .fn-testimony-dua {
+        width: 50%;
+        max-width: 50%;
+   .fn-testi-dua {
+        position: absolute;
+        width: 400px;
+        height: 395px;
+        margin-top: 80px;
+        margin-left: 20px;
+       
+  
+      
+
+    .fn-title-testi2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 43px;
+        color: #4C4C4C;
+        text-align: center;
+       
+  
+    }  
+    
+    .fn-title-testi3 {
+        text-align: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 43px;
+        color: #2D487C; 
+    }
+    .fn-desc-testi2 {
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #000000; 
+        margin-top: 20px;
+       
+    }
+   .fn-testi-btn {
         width: 143px;
         height: 45px;
         background: #2D487C;
@@ -1266,190 +1493,687 @@ html,body{
         font-style: normal;
         font-weight: bold;
         font-size: 16px;
-        line-height: 45px;
-        /* identical to box height */
+        line-height: 50px;
         text-align: center;
         color: #FFFFFF;
         margin-top: 40px;
         letter-spacing: 1px; 
-        margin-left: 150px;
+        border: none;  
+        margin-left: 130px;
+        animation: animasi 2s steps(70, end) ;
+        overflow: hidden;
 
-        }
+        &:hover{
+            background:#073fa8;
+            
+           } 
+
+   } 
+ }  
+   .hero-image-testi {
+       margin-left: 140px;
+       margin-top: -150px;
+   }
+  }
+
+  @media screen and (max-width :768px) {
+    & .fn-testimony-satu {
+        width: 60%;
+        max-width: 60%;
         
-
-
        
+    .fn-testi-satu {
+        width: 300px;
+        height: 250px;
+
+    }
+    .fn-desc-testi1 {
+        font-size: 18px;
+        line-height: 1.4em;
+    }
+    .border {
+      
+        margin-top: 20px;
+        width: 70px;
+        height: 70px; 
+        margin-left: 40px;
+    } 
+
+    .mony {
+
+       margin-left: 130px;
+        margin-top: 40px;
+        font-size: 20px;
+    }
+    
+  }  
+
+  #pembungkus{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+      
+
+    #span{
+        width: 15px;
+        height: 15px;
+        background: #2D487C;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+       margin-left: -90px;
         
     }
-    #img{
-        margin-left: 30px;
-        margin-top: -160px;
+    #span1{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
         
-       
     }
-
+    #span2{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+        
     }
 }
 
-//footer//
 
-footer{
-    position: absolute;
-    width: 1440px;
-    height: 405px;
-    left: 0px;
-    top: 4035px;
 
-    background: #F7F6F6;
+   & .fn-testimony-dua {
+        width: 50%;
+        max-width: 50%;
+   .fn-testi-dua {
+        position: absolute;
+        width: 178px;
+        margin-top: 170px;
+        margin-left: 10px;
 
-    .footer1 {
-        margin-left: 140px;
-        box-sizing: border-box;
+      
+
+    .fn-title-testi2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height:1.4em;
+        color: #4C4C4C;
+        text-align: center;
+    }  
+    
+    .fn-title-testi3 {
+        font-size: 20px;
+        line-height: 1.4em;
+        color: #2D487C; 
+    }
+    .fn-desc-testi2 {
+        font-size: 12px;
+        line-height: 1.3em;
+        margin-top: 20px;
+    }
+   .fn-testi-btn {
+        width: 90px;
+        height: 40px;
+        margin-top: 20px;
+        margin-left:-0 ;
+        margin-left: 40px;
+        font-size: 12px;
+        line-height: 30px;
+
+   } 
+ }  
+   .hero-image-testi {
+       
+        margin-left: 20px;
+        margin-left: -20px;
+
+    .image-testi {
+        width: 100%;
+        margin-top: 150px;
+        margin-left: 20px;
+    }
+
+   }
+  }
+  }
+
+  @media screen and (max-width :578px) {
+
+    & {
+        flex-direction: column;
+    }
+    & .fn-testimony-satu {
+        width: 100%;
+        max-width: 100%;
+        
+       
+    .fn-testi-satu {
+        width: 400px;
+        height: 250px;
+        padding: 50px;
+
+    }
+    .fn-desc-testi1 {
+        font-size: 18px;
+        line-height: 1.4em;
+        font-size: 22px;
+
+    }
+    .border {
+      
+        margin-top: 20px;
+        width: 85px;
+        height: 85px; 
+        margin-left: 60px;
+    } 
+
+    .mony {
+
+       margin-left: 175px;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    
+  }  
+
+  #pembungkus{
         display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
+        justify-content: center;
+        padding: 10px;
+        position: absolute;
+        margin-top: 30px;
+       
+
+    #span{
+        width: 15px;
+        height: 15px;
+        background: #2D487C;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+       margin-left: -90px;
         
     }
-
-    .footer.satu {
-
-        width: 294px;
-          
-
-        h4{
-            color:#2D487C;
-            font-size: 30px;
-            height: 50px;
-            font-weight: bold;
-            font-style: normal;
-            line-height: 36,57px;
-        }
-
-        span{
-            font-size: 30px;
-            font-weight: 100;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        p {
-            margin-top: 40px;
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            color: #000000;
-        }
+    #span1{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+        
     }
+    #span2{
+        width: 15px;
+        height: 15px;
+        background:#C4C4C4;
+        border-radius: 50% 50% 50% 50%;
+        margin-top:-30px ;
+        margin-left: 12px;
+        
+    }
+}
 
-    #rootlayers{
-        margin-top: 115px;
+
+
+   & .fn-testimony-dua {
+        width: 100%;
+        max-width: 100%;
+   .fn-testi-dua {
+        position: absolute;
+        width: 400px;
+        height: 395px;
+        margin-top: 290px;
+       margin-left: -53px;
+
+      
+
+    .fn-title-testi2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height:1.4em;
+        color: #4C4C4C;
+        text-align: center;
+    }  
+    
+    .fn-title-testi3 {
+        text-align: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 43px;
+        color: #2D487C; 
+    }
+    .fn-desc-testi2 {
         font-family: 'Poppins',sans-serif;
         font-style: normal;
         font-weight: 300;
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #000000; 
+        margin-top: 20px;
+    }
+   .fn-testi-btn {
+        width: 143px;
+        height: 45px;
+        background: #2D487C;
+        border-radius: 10px;
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 50px;
+        text-align: center;
+        color: #FFFFFF;
+        margin-top: 40px;
+        letter-spacing: 1px; 
+        border: none;  
+        margin-left: 130px;
+
+   } 
+ }  
+   .hero-image-testi {
+       
+        margin-left: 20px;
+        margin-left: -20px;
+
+    .image-testi {
+        width: 100%;
+        margin-top: 150px;
+    }
+
+   }
+  }
+  }
+} 
+
+
+//footer//
+.fn-footer-main {
+    display: flex;
+    margin-top: 100px;
+    height: 405px;
+    background: #F7F6F6;
+    align-items: center;
+    justify-content: space-between;
+
+    .fn-footer-satu {
+      width: 33%;
+      max-width: 33%;
+      padding: 20px;
+      box-sizing: border-box;
+      margin-top: -70px;
+      
+
+
+    .fn-footer-title {
+        margin-top: 110px;
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
         line-height: 24px;
         color: #000000;
+    }    
+  }
+
+  .fn-footer-dua {
+     width: 20%;
+     max-width: 20%;  
+     margin-top: 100px;
+     .fn-footer-foot {
+    list-style: none;
     }
 
-    .footer.dua {
-        margin-right: 100px;
-        ul{
-            list-style: none;
-            margin-top: 80px;
-            
-        }
-
-        a{  
-            text-decoration: none;
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 30px;
-            color: #1a1414;
-            
-            
-        }
-
-        
-        
-
+    .fn-footer-foot {
+        margin-left: 70px;
     }
 
-    .footer.tiga {
-        width: 420px;
-        margin-right: 160px;
-       
-
-
-        h5{
-            margin-top: 60px;
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 16px;
-            line-height: 80px;
-            color: #000000;
-        }
-        
-        p{
-            font-family: 'Poppins',sans-serif;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 24px;
-            color:#4C4C4C;
-        }
-        
-        #klik{
-            display: flex;
-            margin-top: 30px;
-        }
-        #retagle{
-            width: 320px;
-            height: 45px;
-            left: 851px;
-            top: 4275px;
-            background: #FFFFFF;
-            border-radius: 10px 0px 0px 10px;
-            margin-top: 0px;
-            text-align: center;
-            color: #f5efef;
-            opacity: .5;
-        }
-        #retagle p{
-            line-height: 50px;
-        }
-        
-        #retagle1{
-            width: 128px;
-            height: 45px;
-            left: 1171px;
-            top: 4275px;
-            background: #2D487C;
-            border-radius: 0px 10px 10px 0px;
-        }
-        #retagle1 p{
-           color: white;
-           text-align: center;
-           line-height: 50px;
-           font-weight: bold;
-         }
-
+    a {
+        text-decoration: none;
+        font-family: 'Poppins',sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        color: #1a1414;
     }
+
+  }
+
+  .fn-footer-tiga {
+    width: 45%;
+    max-width: 45%;
+    margin-top: 70px;
+    padding: 20px;
+    box-sizing: border-box;
+  
+  .fn-title-footer {
+    margin-top: 60px;
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 80px;
+    color: #000000; 
+  }
+
+ .fn-desc-footer {
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color:#4C4C4C; 
  }
 
-    .garis-biru{
-            width: 1440px;
-            height: 13px;
-            left: 0px;
-            margin-top: 16px;
-            background: #2D487C;
-            transform: matrix(1, 0, 0, -1, 0, 0);            
+ .fn-icon-retagle {
+    width: 320px;
+    height: 45px;
+    background: #FFFFFF;
+    border-radius: 10px 0px 0px 10px;
+    margin-top: 0px;
+    text-align: center;
+    color: #f5efef;
+    margin-top: 20px;
+ }
+
+ .retagle {
+    line-height: 50px; 
+    font-family: 'Poppins' ,sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal; 
+ }
+  
+ .retagle1 {
+    display: block;
+    font-family: 'Poppins',sans-serif;   
+    width: 128px;
+    height: 45px;
+    background: #2D487C;
+    border-radius: 0px 10px 10px 0px;
+    margin-top: -50px;
+    margin-left: 320px;  
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal; 
+    border: none; 
+    color: white;
+    animation: animasi 2s steps(70, end) ;
+    overflow: hidden;
+
+    &:hover {
+        background: #103475; 
     }
 
-    //responsive//
-    @media screen and (min-width:720px){
-      
+  .fn-desc-foot {
+    font-family: 'Poppins',sans-serif;  
+    color: white;
+    text-align: center;
+    line-height: 50px; 
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal; 
+  }  
+ }
+ }
+
+  @media screen and (max-width:768px) {
+   & .fn-footer-satu {
+        width: 33%;
+        max-width: 33%;
+        margin-top: 0px;
+       
+        
+  
+  
+      .fn-footer-title {
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 24px;
+          color: #000000;
+
+      }    
+    }
+  
+    & .fn-footer-dua {
+       width: 20%;
+       max-width: 20%;  
+       margin-top: 120px;
+       .fn-footer-foot {
+      list-style: none;
+      }
+  
+      .fn-footer-foot {
+          margin-left:40px ;
+      }
+  
+      a {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 1.8em;
+          color: #1a1414;
+      }
+  
+    }
+  
+   & .fn-footer-tiga {
+      width: 45%;
+      max-width: 45%;
+      margin-top: 100px;
+      padding: 20px;
+      box-sizing: border-box;
+    
+    .fn-title-footer {
+      margin-top: 60px;
+      font-family: 'Poppins',sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 80px;
+      color: #000000; 
+    }
+  
+   .fn-desc-footer {
+      font-family: 'Poppins',sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 24px;
+      color:#4C4C4C; 
+   }
+  
+   .fn-icon-retagle {
+      width: 180px;
+      height: 45px;
+      background: #FFFFFF;
+      border-radius: 10px 0px 0px 10px;
+      margin-top: 0px;
+      text-align: center;
+      color: #f5efef;
+      margin-top: 20px;
+   }
+  
+   .retagle {
+      line-height: 50px; 
+      font-family: 'Poppins' ,sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      font-style: normal; 
+   }
+    
+   .retagle1 {
+      font-family: 'Poppins',sans-serif;  
+      position: absolute; 
+      width: 100px;
+      height: 45px;
+      background: #2D487C;
+      border-radius: 0px 10px 10px 0px;
+      margin-top: -50px;
+      margin-left: 180px;  
+      font-weight: 400;
+      font-size: 16px;
+      font-style: normal; 
+     
+  
+    .fn-desc-foot {
+      font-family: 'Poppins',sans-serif;  
+      color: white;
+      text-align: center;
+      line-height: 50px; 
+      font-weight: 400;
+      font-size: 16px;
+      font-style: normal; 
+    }  
+   }
+   }
+  }
+
+  @media screen and (max-width:578px) {
+    & {
+        flex-direction: column;
+        height: 900px;
+    }
+    & .fn-footer-satu {
+         width: 100%;
+         max-width: 100%;
+         margin-top: 0px;
+        
+         
+   
+   
+       .fn-footer-title {
+           font-weight: 300;
+           font-size: 16px;
+           line-height: 24px;
+           color: #000000;
+ 
+       }    
+     }
+   
+     & .fn-footer-dua {
+        width: 20%;
+        max-width: 20%;  
+        margin-top: -90px;
+        .fn-footer-foot {
+       list-style: none;
+       }
+   
+       .fn-footer-foot {
+           margin-left:0px ;
+       }
+   
+       a {
+           font-weight: 400;
+           font-size: 16px;
+           line-height: 4em;
+           color: #1a1414;
+       }
+   
+     }
+   
+    & .fn-footer-tiga {
+       width: 100%;
+       max-width: 100%;
+       margin-top: -140px;
+       padding: 20px;
+       box-sizing: border-box;
+     
+     .fn-title-footer {
+       margin-top: 30px;
+       font-family: 'Poppins',sans-serif;
+       font-style: normal;
+       font-weight: 400;
+       font-size: 16px;
+       line-height: 80px;
+       color: #000000; 
+     }
+   
+    .fn-desc-footer {
+       font-family: 'Poppins',sans-serif;
+       font-style: normal;
+       font-weight: 300;
+       font-size: 16px;
+       line-height: 24px;
+       color:#4C4C4C; 
+    }
+   
+    .fn-icon-retagle {
+        width: 320px;
+        height: 45px;
+       background: #FFFFFF;
+       border-radius: 10px 0px 0px 10px;
+       margin-top: 0px;
+       text-align: center;
+       color: #f5efef;
+       margin-top: 20px;
+    }
+   
+    .retagle {
+       line-height: 50px; 
+       font-family: 'Poppins' ,sans-serif;
+       font-weight: 400;
+       font-size: 16px;
+       font-style: normal; 
+    }
+     
+    .retagle1 {
+       font-family: 'Poppins',sans-serif;   
+       width: 128px;
+       height: 45px;
+       background: #2D487C;
+       border-radius: 0px 10px 10px 0px;
+       margin-top: -50px;
+       margin-left: 310px;  
+       font-weight: 400;
+       font-size: 16px;
+       font-style: normal;  
+   
+     .fn-desc-foot {
+       font-family: 'Poppins',sans-serif;  
+       color: white;
+       text-align: center;
+       line-height: 50px; 
+       font-weight: 400;
+       font-size: 16px;
+       font-style: normal; 
+     }  
+    }
+    }
+   }
 }
+
+.rootlayers {
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #F7F6F6;
+
+ }   
+
+
+.garis-biru {
+    width: 1140px;
+    background: #2D487C;
+    height: 13px;
+    animation: animasi 7s steps(70, end) ;
+    overflow: hidden;
+
+    @media screen and (max-width:768px) {
+        & {
+            width: 100%;
+        }
+    }
+  }
