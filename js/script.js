@@ -1,6 +1,19 @@
-const menuToggle = document.querySelector('.menu-toggle input');
-const nav = document.querySelector('nav ul');
+ // Menu-toggle button
 
-menuToggle.addEventListener('click', function(){
-  nav.classList.toggle('');
+ $(document).ready(function() {
+  $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+  });
 });
+
+// Scrolling Effect
+
+$(window).on("scroll", function() {
+  if($(window).scrollTop()) {
+        $('nav').addClass('black');
+  }
+
+  else {
+        $('nav').removeClass('black');
+  }
+})
